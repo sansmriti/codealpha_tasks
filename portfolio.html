@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Praveen's Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      scroll-behavior: smooth;
+      background: #f4f4f4;
+      color: #333;
+    }
+
+    header {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%;
+      background: #222;
+      color: #fff;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      z-index: 1000;
+    }
+    header nav a {
+      color: #fff;
+      margin: 0 10px;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    header nav a:hover { color: #ff9800; }
+
+    section {
+      min-height: 100vh;
+      padding: 100px 20px;
+    }
+
+    #hero {
+      background: linear-gradient(to right, #ff9800, #f44336);
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+    #hero h1 { font-size: 3rem; }
+    #hero p { font-size: 1.2rem; }
+    #hero a {
+      margin-top: 20px;
+      background:#fff;
+      color:#222;
+      padding:10px 20px;
+      border-radius:5px;
+      text-decoration:none;
+      transition: background 0.3s;
+    }
+    #hero a:hover { background:#ddd; }
+
+    #about, #skills, #projects, #resume, #contact {
+      background: #fff;
+      margin: 20px auto;
+      border-radius: 8px;
+      padding: 40px;
+      max-width: 1000px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    h2 { text-align: center; margin-bottom: 20px; }
+
+    /* Skills */
+    .skill {
+      margin: 15px 0;
+    }
+    .bar {
+      background: #ddd;
+      border-radius: 5px;
+      overflow: hidden;
+    }
+    .progress {
+      background: #ff9800;
+      height: 10px;
+      transition: width 1s ease;
+    }
+
+    /* Projects */
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+    .project-card {
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      transition: transform 0.3s;
+      overflow: hidden;
+    }
+    .project-card:hover { transform: translateY(-5px); }
+    .project-card img { width: 100%; }
+    .project-card h3 { margin: 10px; }
+
+    /* Resume Timeline */
+    .timeline {
+      position: relative;
+      margin: 20px 0;
+    }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 50%;
+      width: 2px;
+      background: #ff9800;
+      top: 0; bottom: 0;
+    }
+    .timeline-item {
+      position: relative;
+      width: 45%;
+      padding: 20px;
+      background: #f9f9f9;
+      border-radius: 8px;
+      margin: 20px 0;
+    }
+    .timeline-item.left { left: 0; }
+    .timeline-item.right { left: 55%; }
+    .timeline-item h3 { margin-top: 0; }
+
+    /* Contact */
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    input, textarea {
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    button {
+      background: #ff9800;
+      color: #fff;
+      border: none;
+      padding: 10px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    button:hover { background: #e68900; }
+
+    footer {
+      background: #222;
+      color: #fff;
+      text-align: center;
+      padding: 1rem;
+    }
+
+    /* Animations */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.6s ease;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media(max-width:768px) {
+      .timeline-item {
+        width: 90%;
+        left: 5% !important;
+      }
+      header { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h2>Sansmriti</h2>
+  <nav>
+    <a href="#hero">Home</a>
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#resume">Resume</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<section id="hero">
+  <h1>Hello, I'm Sansmriti</h1>
+  <p>Developer | learner | Problem Solver</p>
+  <a href="#projects">View My Work</a>
+</section>
+
+<section id="about" class="fade-in">
+  <h2>About Me</h2>
+  <p>I am a passionate fresher learner skilled in, Python, and web technologies. I love building interactive, user‑friendly applications and websites.</p>
+</section>
+
+<section id="skills" class="fade-in">
+  <h2>Skills</h2>
+  <div class="skill">
+    <p>Python</p>
+    <div class="bar"><div class="progress" style="width:80%"></div></div>
+  </div>
+  <div class="skill">
+    <p>HTML/CSS/JS</p>
+    <div class="bar"><div class="progress" style="width:85%"></div></div>
+  </div>
+</section>
+
+<section id="projects" class="fade-in">
+  <h2>Projects</h2>
+  <div class="projects">
+    <div class="project-card">
+      <img src="D:\muskan\sanspriya techtrio\internship\images\flower.jpg" alt="Project 1">
+      <h3>hangman game</h3>
+      <a href="https://github.com/sansmriti/codealpha_tasks/blob/main/hangman2.py">View My Work</a>
+      <p>A hangman game implemented in python.</p>
+    </div>
+    <div class="project-card">
+      <img src="D:\muskan\sanspriya techtrio\internship\images\land.jpg" alt="Project 2">
+      <h3>Stock portfolio tracker</h3>
+      <p>it track the stock portfolio.</p>
+      <a href="https://github.com/sansmriti/codealpha_tasks/blob/main/stock.py">View My Work</a>
+    </div>
+
+  </div>
+</section>
+
+<section id="resume" class="fade-in">
+  <h2>Resume</h2>
+  <div class="timeline">
+    <div class="timeline-item left">
+      <h3>2024 -project development</h3>
+      <p>Worked on modular front end applications and debugging.</p>
+    </div>
+    <div class="timeline-item right">
+      <h3>2025 - Project Development</h3>
+      <p>Built projects like gift shop and papernest.</p>
+    </div>
+    <div class="timeline-item left">
+      <h3>2026 - Portfolio Expansion</h3>
+      <p>Built offline TechTrio modules (Translator, Chatbot, Weather).</p>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="fade-in">
+  <h2>Contact Me</h2>
+  <form>
+    <input type="name" placeholder="your name" required>
+    <input type="email" placeholder="your email" required>
+    <textarea placeholder="Your Message" rows="5" required></textarea>
+    <button type="submit">Send Message</button>
+  </form>
+</section>
+
+<footer>
+  <p>© 2026 Sansmriti's Portfolio</p>
+</footer>
+
+<script>
+  // Smooth scroll for navigation links
+  document.querySelectorAll('header nav a').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      e.preventDefault();
+      document.querySelector(this.getAttribute('href')).scrollIntoView({
+        behavior: 'smooth'
+      });
+    });
+  });
+
+  // Fade-in animation on scroll
+  const faders = document.querySelectorAll('.fade-in');
+  window.addEventListener('scroll', () => {
+    faders.forEach(el => {
+      const rect = el.getBoundingClientRect();
+      if (rect.top < window.innerHeight - 100) {
+        el.classList.add('visible');
+      }
+    });
+  });
+</script>
